@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import UserMenu from "../../components/UserMenu";
 
 function SearchIcon() {
   return (
@@ -70,26 +71,9 @@ export default function TopHeaderStrip() {
           <BriefcaseIcon />
         </IconButton>
         <Divider />
-        <button className="ml-1 flex items-center gap-1.5">
-          <Image
-            src="/pic/user.png"
-            alt="Профиль"
-            width={32}
-            height={32}
-            className="rounded-full object-cover"
-          />
-          <svg
-            width="10"
-            height="10"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-gray-400"
-          >
-            <path d="m6 9 6 6 6-6" />
-          </svg>
-        </button>
+        <div className="ml-1">
+          <UserMenu />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import UserMenu from "../components/UserMenu";
 
 export const metadata = {
   title: "Бизнесу — вКвартирах",
@@ -154,15 +155,9 @@ export default function BusinessPage() {
             <BriefcaseIcon />
           </button>
           <div className="w-px h-5 bg-gray-200" />
-          <button className="ml-1 flex items-center gap-1.5">
-            <Image
-              src="/pic/user.png"
-              alt="Профиль"
-              width={32}
-              height={32}
-              className="rounded-full object-cover"
-            />
-          </button>
+          <div className="ml-1">
+            <UserMenu />
+          </div>
         </div>
       </header>
 

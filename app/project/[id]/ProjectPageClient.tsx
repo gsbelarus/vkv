@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Project } from "@/lib/mockProjects";
 import { getDesignerByName } from "@/lib/mockDesigners";
 import { mockFurniture, FurnitureItem } from "@/lib/mockFurniture";
+import UserMenu from "@/app/components/UserMenu";
 
 // Icons
 function SearchIcon() {
@@ -310,14 +311,7 @@ export default function ProjectPageClient({
               </span>
             </button>
             <div className="w-px h-5 bg-gray-200" />
-            <div className="relative w-8 h-8 rounded-full overflow-hidden">
-              <Image
-                src="/pic/user.png"
-                alt="User"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <UserMenu />
           </div>
         </header>
 
