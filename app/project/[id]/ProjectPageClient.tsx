@@ -280,13 +280,13 @@ export default function ProjectPageClient({
               Каталог
             </Link>
             <Link
-              href="#"
+              href="/designers"
               className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >
               Дизайнерам
             </Link>
             <Link
-              href="#"
+              href="/business"
               className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
             >
               Бизнесу
