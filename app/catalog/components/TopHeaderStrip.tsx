@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import UserMenu from "../../components/UserMenu";
+import NotificationsMenu from "../../components/NotificationsMenu";
 
 function SearchIcon() {
   return (
@@ -63,9 +64,7 @@ export default function TopHeaderStrip() {
           <SearchIcon />
         </IconButton>
         <Divider />
-        <IconButton>
-          <BellIcon />
-        </IconButton>
+        <NotificationsMenu />
         <Divider />
         <IconButton>
           <BriefcaseIcon />

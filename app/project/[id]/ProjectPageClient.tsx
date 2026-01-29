@@ -8,6 +8,7 @@ import { Project } from "@/lib/mockProjects";
 import { getDesignerByName } from "@/lib/mockDesigners";
 import { mockFurniture, FurnitureItem } from "@/lib/mockFurniture";
 import UserMenu from "@/app/components/UserMenu";
+import NotificationsMenu from "@/app/components/NotificationsMenu";
 
 // Icons
 function SearchIcon() {
@@ -299,10 +300,7 @@ export default function ProjectPageClient({
               <SearchIcon />
             </button>
             <div className="w-px h-5 bg-gray-200" />
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative">
-              <BellIcon />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-[#D9614C] rounded-full" />
-            </button>
+            <NotificationsMenu />
             <div className="w-px h-5 bg-gray-200" />
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors relative">
               <BriefcaseIcon />

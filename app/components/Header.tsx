@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
+import NotificationsMenu from "./NotificationsMenu";
 
 function Logo() {
   return (
@@ -75,9 +76,7 @@ function UserActions() {
         <SearchIcon />
       </IconButton>
       <Divider />
-      <IconButton>
-        <BellIcon />
-      </IconButton>
+      <NotificationsMenu />
       <Divider />
       <IconButton>
         <BriefcaseIcon />

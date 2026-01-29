@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import UserMenu from "../components/UserMenu";
+import NotificationsMenu from "../components/NotificationsMenu";
 
 export const metadata = {
   title: "Бизнесу — вКвартирах",
@@ -147,9 +148,7 @@ export default function BusinessPage() {
             <SearchIcon />
           </button>
           <div className="w-px h-5 bg-gray-200" />
-          <button className="p-2 text-gray-500 hover:text-black transition-colors">
-            <BellIcon />
-          </button>
+          <NotificationsMenu />
           <div className="w-px h-5 bg-gray-200" />
           <button className="p-2 text-gray-500 hover:text-black transition-colors">
             <BriefcaseIcon />
