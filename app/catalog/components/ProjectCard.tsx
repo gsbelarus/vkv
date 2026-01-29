@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Project } from "@/lib/mockProjects";
 
 interface ProjectCardProps {
@@ -16,6 +19,14 @@ function LocationIcon() {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const router = useRouter();
+
+  const handleDesignerClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    router.push(`/designer/${project.designerId}`);
+  };
+
   return (
     <Link
       href={`/project/${project.id}`}
@@ -65,7 +76,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Designer and style row */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1.5">
+          <button
+            onClick={handleDesignerClick}
+            className="flex items-center gap-1.5 hover:opacity-80 transition-opacity text-left"
+          >
             <Image
               src={project.designerAvatar}
               alt={project.designerName}
@@ -75,9 +89,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             />
             <div className="flex flex-col">
               <span className="text-[8px] text-gray-400">Автор</span>
-              <span className="text-[10px] text-gray-700 truncate max-w-[80px]">{project.designerName}</span>
+              <span className="text-[10px] text-gray-700 truncate max-w-[80px] hover:text-[#D9614C] transition-colors">{project.designerName}</span>
             </div>
-          </div>
+          </button>
           <div className="flex flex-col text-right">
             <span className="text-[8px] text-gray-400">Стиль</span>
             <span className="text-[10px] text-gray-700">{project.style}</span>

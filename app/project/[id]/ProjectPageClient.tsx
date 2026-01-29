@@ -198,15 +198,23 @@ export default function ProjectPageClient({
           </p>
 
           <div className="flex flex-col items-center text-center mb-6">
-            <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3">
+            <Link
+              href={`/designer/${project.designerId}`}
+              className="relative w-24 h-24 rounded-full overflow-hidden mb-3 ring-2 ring-transparent hover:ring-[#D9614C] transition-all"
+            >
               <Image
                 src={designer?.avatar || "/pic/Frame 107.png"}
                 alt={project.designerName}
                 fill
                 className="object-cover"
               />
-            </div>
-            <h3 className="font-medium text-gray-900">{project.designerName}</h3>
+            </Link>
+            <Link
+              href={`/designer/${project.designerId}`}
+              className="font-medium text-gray-900 hover:text-[#D9614C] transition-colors"
+            >
+              {project.designerName}
+            </Link>
             <p className="text-sm text-gray-500">
               {designer?.specialty || "Дизайнер интерьера"}
             </p>
