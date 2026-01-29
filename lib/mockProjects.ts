@@ -7,8 +7,11 @@ export interface Project {
   style: string;
   city: string;
   designerName: string;
+  designerId: number;
   designerAvatar: string;
   image: string;
+  images: string[];
+  roomsTags: string[];
   popularScore: number;
   createdAt: string;
 }
@@ -48,6 +51,13 @@ const images = [
   "/pic/Frame 118.png",
   "/pic/Frame 119.png",
   "/pic/Frame 120.png",
+];
+
+const roomsTagsOptions = [
+  ["Гостиная", "Кухня", "Прихожая"],
+  ["Гостиная", "Кухня", "Прихожая", "Спальня"],
+  ["Гостиная", "Кухня", "Спальня", "Ванная"],
+  ["Гостиная", "Кухня", "Прихожая", "Спальня", "Детская"],
 ];
 
 const titleTypes: Project["titleType"][] = [
@@ -96,6 +106,16 @@ export const mockProjects: Project[] = Array.from({ length: 48 }, (_, i) => {
           ? Math.floor(seededRandom(seed * 4) * 400000) + 200000
           : Math.floor(seededRandom(seed * 4) * 150000) + 50000;
 
+  const designerIndex = Math.floor(seededRandom(seed * 7) * designers.length);
+  const mainImage = images[i % images.length];
+
+  // Generate multiple images for gallery (4-6 images)
+  const numImages = Math.floor(seededRandom(seed * 11) * 3) + 4;
+  const projectImages: string[] = [mainImage];
+  for (let j = 1; j < numImages; j++) {
+    projectImages.push(images[(i + j) % images.length]);
+  }
+
   return {
     id: i + 1,
     titleType,
@@ -104,9 +124,12 @@ export const mockProjects: Project[] = Array.from({ length: 48 }, (_, i) => {
     price,
     style: styles[Math.floor(seededRandom(seed * 5) * styles.length)],
     city: cities[Math.floor(seededRandom(seed * 6) * cities.length)],
-    designerName: designers[Math.floor(seededRandom(seed * 7) * designers.length)],
+    designerName: designers[designerIndex],
+    designerId: designerIndex + 1,
     designerAvatar: "/pic/user.png",
-    image: images[i % images.length],
+    image: mainImage,
+    images: projectImages,
+    roomsTags: roomsTagsOptions[Math.floor(seededRandom(seed * 12) * roomsTagsOptions.length)],
     popularScore: Math.floor(seededRandom(seed * 8) * 100),
     createdAt: new Date(2025, Math.floor(seededRandom(seed * 9) * 12), Math.floor(seededRandom(seed * 10) * 28) + 1).toISOString(),
   };

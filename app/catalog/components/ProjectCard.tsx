@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Project } from "@/lib/mockProjects";
 
 interface ProjectCardProps {
@@ -16,7 +17,10 @@ function LocationIcon() {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <Link
+      href={`/project/${project.id}`}
+      className="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+    >
       {/* Image */}
       <div className="relative aspect-[4/3]">
         <Image
@@ -35,15 +39,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <span className="text-xs font-medium text-gray-900">
             {project.titleType === "Квартира-студия" ? "Квартира" : project.titleType}, {project.area} м2
           </span>
-          <a
-            href={`https://www.google.com/maps/search/${encodeURIComponent(project.city)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-0.5 text-[10px] text-gray-500 hover:text-[#D9614C] transition-colors"
+          <span
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(`https://www.google.com/maps/search/${encodeURIComponent(project.city)}`, '_blank');
+            }}
+            className="flex items-center gap-0.5 text-[10px] text-gray-500 hover:text-[#D9614C] transition-colors cursor-pointer"
           >
             <LocationIcon />
             {project.city}
-          </a>
+          </span>
         </div>
 
         {/* Designer and style row */}
@@ -67,6 +73,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
