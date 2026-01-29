@@ -19,17 +19,28 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/project/${project.id}`}
-      className="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+      className="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
     >
-      {/* Image */}
-      <div className="relative aspect-[4/3]">
-        <Image
-          src={project.image}
-          alt={`${project.titleType}, ${project.area} м²`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-        />
+      {/* Image with flip animation */}
+      <div className="relative aspect-[4/3] [perspective:1000px]">
+        <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+          {/* Front side - Image */}
+          <div className="absolute inset-0 [backface-visibility:hidden]">
+            <Image
+              src={project.image}
+              alt={`${project.titleType}, ${project.area} м²`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+            />
+          </div>
+          {/* Back side - Description */}
+          <div className="absolute inset-0 bg-[#D9614C] [backface-visibility:hidden] [transform:rotateY(180deg)] flex items-center justify-center p-4">
+            <p className="text-white text-xs text-center leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Content */}
