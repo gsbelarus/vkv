@@ -138,3 +138,7 @@ export const mockFurniture: FurnitureItem[] = [
     description: "Легендарное кресло-качалка POÄNG. Гнутый берёзовый каркас создаёт пружинящий эффект. Бестселлер с 1976 года.",
   },
 ];
+
+export function getFurnitureById(id: number): FurnitureItem | undefined {
+  return mockFurniture.find((f) => f.id === id);
+}

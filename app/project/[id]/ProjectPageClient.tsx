@@ -526,8 +526,8 @@ function FurnitureCard({
 }) {
   return (
     <div className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
-      {/* Flip container for image */}
-      <div className="relative aspect-square [perspective:1000px] group">
+      {/* Flip container for image - clickable link */}
+      <Link href={`/furniture/${item.id}`} className="block relative aspect-square [perspective:1000px] group">
         <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
           {/* Front side - Image */}
           <div className="absolute inset-0 bg-gray-50 p-4 [backface-visibility:hidden]">
@@ -545,12 +545,14 @@ function FurnitureCard({
             </p>
           </div>
         </div>
-      </div>
+      </Link>
       <div className="p-4">
         <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
           {item.brand}
         </p>
-        <h3 className="text-sm font-medium text-gray-900 mb-1">{item.name}</h3>
+        <Link href={`/furniture/${item.id}`} className="block">
+          <h3 className="text-sm font-medium text-gray-900 mb-1 hover:text-[#D9614C] transition-colors">{item.name}</h3>
+        </Link>
         <div className="flex gap-0.5 mb-3">
           {Array.from({ length: 5 }).map((_, i) => (
             <StarIcon key={i} filled={i < Math.round(item.rating)} />
