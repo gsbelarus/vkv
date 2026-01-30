@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "docker:build": "docker build -t gsbelarus/vkv .",
+    "docker:run": "docker run --rm -p 3000:3000 --name vkv gsbelarus/vkv"
   },
   "dependencies": {
     "next": "16.1.6",
