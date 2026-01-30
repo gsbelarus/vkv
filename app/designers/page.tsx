@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import UserMenu from "../components/UserMenu";
 import NotificationsMenu from "../components/NotificationsMenu";
+import SearchBar from "../components/SearchBar";
 
 export const metadata = {
   title: "Дизайнерам — вКвартирах",
@@ -86,9 +87,7 @@ export default function DesignersPage() {
           </nav>
         </div>
         <div className="flex items-center gap-0.5">
-          <button className="p-2 text-gray-500 hover:text-black transition-colors">
-            <SearchIcon />
-          </button>
+          <SearchBar />
           <div className="w-px h-5 bg-gray-200" />
           <NotificationsMenu />
           <div className="w-px h-5 bg-gray-200" />

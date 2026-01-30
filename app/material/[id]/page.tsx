@@ -5,6 +5,7 @@ import { getMaterialById, mockMaterials } from "@/lib/mockMaterials";
 import { mockProjects } from "@/lib/mockProjects";
 import UserMenu from "@/app/components/UserMenu";
 import NotificationsMenu from "@/app/components/NotificationsMenu";
+import SearchBar from "@/app/components/SearchBar";
 
 // Generate static params for all materials
 export function generateStaticParams() {
@@ -26,15 +27,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 // Icons
-function SearchIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
 function BriefcaseIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -175,9 +167,7 @@ export default async function MaterialPage({ params }: { params: Promise<{ id: s
           </nav>
         </div>
         <div className="flex items-center gap-0.5">
-          <button className="p-2 text-gray-500 hover:text-black transition-colors">
-            <SearchIcon />
-          </button>
+          <SearchBar />
           <div className="w-px h-5 bg-gray-200" />
           <NotificationsMenu />
           <div className="w-px h-5 bg-gray-200" />

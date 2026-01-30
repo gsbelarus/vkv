@@ -9,6 +9,7 @@ import { getDesignerByName } from "@/lib/mockDesigners";
 import { mockFurniture, FurnitureItem } from "@/lib/mockFurniture";
 import UserMenu from "@/app/components/UserMenu";
 import NotificationsMenu from "@/app/components/NotificationsMenu";
+import SearchBar from "@/app/components/SearchBar";
 
 // Icons
 function SearchIcon() {
@@ -304,9 +305,7 @@ export default function ProjectPageClient({
           </nav>
 
           <div className="flex items-center gap-4">
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-              <SearchIcon />
-            </button>
+            <SearchBar />
             <div className="w-px h-5 bg-gray-200" />
             <NotificationsMenu />
             <div className="w-px h-5 bg-gray-200" />
