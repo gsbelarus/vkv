@@ -405,21 +405,25 @@ export default function ProjectPageClient({
                   </h3>
                   <div className="space-y-2">
                     {wallOptions.map((option) => (
-                      <label
-                        key={option.id}
-                        className="flex items-start gap-3 cursor-pointer"
-                      >
+                      <div key={option.id} className="flex items-start gap-3">
                         <input
                           type="radio"
                           name="wall"
+                          id={option.id}
                           checked={selectedWall === option.id}
                           onChange={() => setSelectedWall(option.id)}
-                          className="mt-1 w-4 h-4 text-[#D9614C] border-gray-300 focus:ring-[#D9614C] accent-[#D9614C]"
+                          className="mt-1 w-4 h-4 text-[#D9614C] border-gray-300 focus:ring-[#D9614C] accent-[#D9614C] cursor-pointer"
                         />
-                        <span className="text-sm text-gray-600">
-                          {option.name}
-                        </span>
-                      </label>
+                        <label htmlFor={option.id} className="flex-1 cursor-pointer">
+                          <Link
+                            href={`/material/${option.id}`}
+                            className="text-sm text-gray-600 hover:text-[#D9614C] transition-colors underline decoration-dotted underline-offset-2"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {option.name}
+                          </Link>
+                        </label>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -429,21 +433,25 @@ export default function ProjectPageClient({
                   <h3 className="font-medium text-gray-900 mb-3">Ламинат</h3>
                   <div className="space-y-2">
                     {floorOptions.map((option) => (
-                      <label
-                        key={option.id}
-                        className="flex items-start gap-3 cursor-pointer"
-                      >
+                      <div key={option.id} className="flex items-start gap-3">
                         <input
                           type="radio"
                           name="floor"
+                          id={option.id}
                           checked={selectedFloor === option.id}
                           onChange={() => setSelectedFloor(option.id)}
-                          className="mt-1 w-4 h-4 text-[#D9614C] border-gray-300 focus:ring-[#D9614C] accent-[#D9614C]"
+                          className="mt-1 w-4 h-4 text-[#D9614C] border-gray-300 focus:ring-[#D9614C] accent-[#D9614C] cursor-pointer"
                         />
-                        <span className="text-sm text-gray-600">
-                          {option.name}
-                        </span>
-                      </label>
+                        <label htmlFor={option.id} className="flex-1 cursor-pointer">
+                          <Link
+                            href={`/material/${option.id}`}
+                            className="text-sm text-gray-600 hover:text-[#D9614C] transition-colors underline decoration-dotted underline-offset-2"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {option.name}
+                          </Link>
+                        </label>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -453,21 +461,25 @@ export default function ProjectPageClient({
                   <h3 className="font-medium text-gray-900 mb-3">Потолок</h3>
                   <div className="space-y-2">
                     {ceilingOptions.map((option) => (
-                      <label
-                        key={option.id}
-                        className="flex items-start gap-3 cursor-pointer"
-                      >
+                      <div key={option.id} className="flex items-start gap-3">
                         <input
                           type="radio"
                           name="ceiling"
+                          id={option.id}
                           checked={selectedCeiling === option.id}
                           onChange={() => setSelectedCeiling(option.id)}
-                          className="mt-1 w-4 h-4 text-[#D9614C] border-gray-300 focus:ring-[#D9614C] accent-[#D9614C]"
+                          className="mt-1 w-4 h-4 text-[#D9614C] border-gray-300 focus:ring-[#D9614C] accent-[#D9614C] cursor-pointer"
                         />
-                        <span className="text-sm text-gray-600">
-                          {option.name}
-                        </span>
-                      </label>
+                        <label htmlFor={option.id} className="flex-1 cursor-pointer">
+                          <Link
+                            href={`/material/${option.id}`}
+                            className="text-sm text-gray-600 hover:text-[#D9614C] transition-colors underline decoration-dotted underline-offset-2"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {option.name}
+                          </Link>
+                        </label>
+                      </div>
                     ))}
                   </div>
                 </div>
